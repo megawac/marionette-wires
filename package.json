@@ -2,7 +2,7 @@
   "name": "marionette-wires",
   "version": "0.0.0",
   "description": "Starter kit for Marionette.js Applications using Browserify",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "gulp",
     "test": "gulp test",
@@ -98,6 +98,13 @@
     }
   },
   "browserify": {
+    "plugin": [
+      ["remapify", [{
+        "src": "**/*.js",
+        "expose": "src",
+        "cwd": "src"
+      }]]
+    ],
     "transform": [
       ["hbsfy", {
         "extensions": ["hbs"]
